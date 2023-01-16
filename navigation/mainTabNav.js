@@ -1,10 +1,8 @@
 import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { Text, Dimensions } from "react-native";
+import { Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import Header from "../components/header";
-import { Provider as PaperProvider } from "react-native-paper";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -13,27 +11,20 @@ export default function MainTab() {
   const Settings = () => <Text>This is the Settings</Text>;
 
   return (
-    <PaperProvider>
-        <SafeAreaView>
-        <NavigationContainer>
+    <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="Home"
-        screenOptions={{ 
-            tabBarLabelStyle: { fontSize: 12 },
-            tabBarItemStyle: { width: 100 },
-            tabBarStyle: { backgroundColor: 'powderblue' },
+        tabBar={(props) => <Header {...props} />}
+        initialRouteName="Chats"
+        screenOptions={{
+          tabBarBounces: true,
+          tabBarGap: 44,
         }}
       >
-        <Tab.Screen
-          name="Home"
-          component={HomeScreen}
-          
-        />
-        <Tab.Screen name="Settings" component={Settings} />
+        <Tab.Screen name="community" component={Settings} />
+        <Tab.Screen name="Chats" component={HomeScreen} />
+        <Tab.Screen name="Status" component={Settings} />
+        <Tab.Screen name="Calls" component={Settings} />
       </Tab.Navigator>
     </NavigationContainer>
-        </SafeAreaView>
-    </PaperProvider>
-    
   );
 }

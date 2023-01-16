@@ -1,7 +1,12 @@
 import React from "react";
 import MainTab from "./navigation/mainTabNav";
-import Header from "./components/header";
+import { Provider as PaperProvider } from "react-native-paper";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
-  return <MainTab />;
+  return (
+    <PaperProvider>
+      <MainTab />
+    </PaperProvider>
+  );
 }
