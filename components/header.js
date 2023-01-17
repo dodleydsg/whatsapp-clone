@@ -1,19 +1,11 @@
 import React from "react";
-import { View, StyleSheet, Text, Animated } from "react-native";
+import { View, Text } from "react-native";
 import { Appbar } from "react-native-paper";
-import { TouchableRipple } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Button, IconButton, MD2Colors } from "react-native-paper";
 import { NavigationContainer } from "@react-navigation/native";
 import MainTab from "../navigation/mainTabNav";
 
-const _ = () => (
-  <View>
-    <Text>Hello</Text>
-  </View>
-);
-
-export default function Header(props) {
+export default function Header({ theme }) {
   return (
     <SafeAreaView style={{ backgroundColor: "green", flex: 1 }}>
       <NavigationContainer>
@@ -27,7 +19,6 @@ export default function Header(props) {
           tabBarStyle={{
             backgroundColor: "green",
             flex: 0,
-            justifyContent: "center",
           }}
         />
       </NavigationContainer>

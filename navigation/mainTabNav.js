@@ -1,15 +1,11 @@
 import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { Text } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import Header from "../components/header";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { IconButton } from "react-native-paper";
+import Chats from "../components/chats";
 
 const Tab = createMaterialTopTabNavigator();
 
 export default function MainTab(props) {
-  const HomeScreen = () => <Text>his is the home</Text>;
   const Settings = () => <Text>This is the Settings</Text>;
 
   return (
@@ -22,7 +18,7 @@ export default function MainTab(props) {
         tabBarLabelStyle: { textTransform: "uppercase", color: "white" },
       }}
     >
-      <Tab.Screen
+      {/* <Tab.Screen
         name="community"
         options={{
           title: () => (
@@ -34,8 +30,8 @@ export default function MainTab(props) {
           ),
         }}
         component={Settings}
-      />
-      <Tab.Screen name="Chats" component={HomeScreen} />
+      /> */}
+      <Tab.Screen name="Chats" component={Chats} />
       <Tab.Screen name="Status" component={Settings} />
       <Tab.Screen name="Calls" component={Settings} />
     </Tab.Navigator>
