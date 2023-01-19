@@ -28,7 +28,10 @@ export default function ChatItem({
           <Text variant="bodySmall" style={{ color: "gray" }}>
             8:59 PM
           </Text>
-          <Badge>11</Badge>
+          <Badge>
+            {/* Badge for unread messages */}
+            11
+          </Badge>
         </View>
       </>
     </TouchableRipple>

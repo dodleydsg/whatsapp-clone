@@ -3,24 +3,20 @@ import { StyleSheet, FlatList } from "react-native";
 import { Text, TouchableRipple } from "react-native-paper";
 import { View } from "react-native";
 import ChatItem from "./chatItem";
+import Container from "../shared/itemContainer";
 
 export default function Chats() {
   const [chats, setChats] = useState([]);
-  //   return <FlatList data={chats} />;
-  // FlatList for rendering ChatItems
   return (
-    <View style={styles.container}>
-      <ChatItem id={1} />
-      <ChatItem id={2} />
-    </View>
+    <Container>
+      <ChatItem />
+      <ChatItem />
+      <ChatItem />
+      <ChatItem />
+      <ChatItem />
+      <ChatItem />
+      <ChatItem />
+      <ChatItem />
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 0,
-    columnGap: 12,
-    justifyContent: "center",
-    marginTop: 4,
-  },
-});
