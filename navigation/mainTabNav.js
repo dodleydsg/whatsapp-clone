@@ -3,6 +3,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { Text } from "react-native";
 import Chats from "../components/chats";
 import Calls from "../components/calls";
+import Status from "../components/status";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -33,7 +34,7 @@ export default function MainTab(props) {
         component={Settings}
       /> */}
       <Tab.Screen name="Chats" component={Chats} />
-      <Tab.Screen name="Status" component={Settings} />
+      <Tab.Screen name="Status" component={Status} />
       <Tab.Screen name="Calls" component={Calls} />
     </Tab.Navigator>
   );
