@@ -10,18 +10,22 @@ export default function Calls() {
   // FlatList for rendering ChatItems
   return (
     <View style={styles.container}>
-      <CallItem />
+      <CallItem
+        avatarImage="link-variant"
+        headline="Create call link"
+        subtitle="Share a link of your Whatsapp call"
+      />
       <Text
         variant="bodySmall"
-        style={{ marginLeft: 18, color: "gray" }}
-        avatarImage="link"
+        style={{ marginLeft: 18, color: "grey" }}
+        avatarImage="user"
       >
         Recent
       </Text>
-      <CallItem />
-      <CallItem />
-      <CallItem />
-      <CallItem />
+      <CallItem callType="video" />
+      <CallItem callType="audio" />
+      <CallItem status="missed" />
+      <CallItem status="accepted" />
       <CallItem />
     </View>
   );

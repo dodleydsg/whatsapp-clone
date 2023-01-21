@@ -7,18 +7,63 @@ import {
   Button,
 } from "react-native-paper";
 import { View, StyleSheet, Icon } from "react-native";
+import { MaterialCommunityIcons as MCIcons } from "@expo/vector-icons";
 
-export default function CallItem({ avatarImage, headline, status, timeStamp }) {
+export default function CallItem({
+  avatarImage,
+  headline,
+  status,
+  timeStamp,
+  subtitle,
+  callType,
+}) {
   let rand = 1;
+  const callIcon = () => {
+    switch (callType) {
+      case "video":
+        return <IconButton icon="video" />;
+      case "audio":
+        return <IconButton icon="phone" />;
+      default:
+        return null;
+    }
+  };
+
+  const statusIcon = () => {
+    switch (status) {
+      case "missed":
+        return (
+          <MCIcons
+            name="arrow-bottom-left"
+            style={{ marginRight: 4 }}
+            color="red"
+            size={14}
+          />
+        );
+      case "accepted":
+        return (
+          <MCIcons
+            name="arrow-top-right"
+            style={{ marginRight: 4 }}
+            color="green"
+            size={14}
+          />
+        );
+      default:
+        return null;
+    }
+  };
   return (
     <TouchableRipple style={styles.container} onPress={() => false}>
       <>
-        <Avatar.Icon size={54} icon="account" style={styles.avatarSection} />
+        <Avatar.Icon
+          size={54}
+          icon={avatarImage || "account"}
+          style={styles.avatarSection}
+        />
         <View style={styles.mainSection}>
           {/* Chat name and last send message  */}
-          <Text variant="bodyLarge" style={{ fontWeight: "500" }}>
-            Best Sis Thelma
-          </Text>
+          <Text variant="titleMedium">{headline || "Headline Here"}</Text>
           <View
             style={{
               flex: 0,
@@ -27,26 +72,15 @@ export default function CallItem({ avatarImage, headline, status, timeStamp }) {
               justifyContent: "flex-start",
             }}
           >
-            <IconButton
-              icon="arrow-bottom-left"
-              size={16}
-              style={{
-                marginHorizontal: 0,
-                padding: 0,
-                flex: 0,
-                flexDirection: "row",
-                justifyContent: "flex-start",
-              }}
-            />
-            <Text variant="bodySmall" style={{ color: "grey" }}>
-              Today, 9: 17 AM
+            {statusIcon()}
+            <Text variant="bodyMedium" style={{ color: "grey" }}>
+              {subtitle || "Date here"}
             </Text>
           </View>
         </View>
         <View style={styles.asideSection}>
           {/* Contains icon of type of call video|audio */}
-
-          <IconButton icon="phone" />
+          {callIcon()}
         </View>
       </>
     </TouchableRipple>
