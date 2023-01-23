@@ -1,12 +1,15 @@
 import React from "react";
 import MainTab from "./navigation/mainTabNav";
 import { Provider as PaperProvider } from "react-native-paper";
-import Header from "./components/header";
+import Main from "./components/main";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
   return (
-    <PaperProvider>
-      <Header />
-    </PaperProvider>
+    <NavigationContainer>
+      <PaperProvider>
+        <Main />
+      </PaperProvider>
+    </NavigationContainer>
   );
 }

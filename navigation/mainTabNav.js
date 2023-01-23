@@ -4,6 +4,7 @@ import { Text } from "react-native";
 import Chats from "../components/chats";
 import Calls from "../components/calls";
 import Status from "../components/status";
+import ActionFab from "../components/shared/actionFab";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -11,31 +12,21 @@ export default function MainTab(props) {
   const Settings = () => <Text>This is the Settings</Text>;
 
   return (
-    <Tab.Navigator
-      initialRouteName="Chats"
-      screenOptions={{
-        ...props,
-        tabBarBounces: true,
-        tabBarIndicatorStyle: { backgroundColor: "white" },
-        tabBarLabelStyle: { textTransform: "uppercase", color: "white" },
-      }}
-    >
-      {/* <Tab.Screen
-        name="community"
-        options={{
-          title: () => (
-            <IconButton
-              style={{ margin: 0, padding: 0 }}
-              icon="account-group"
-              size={18}
-            />
-          ),
+    <>
+      <Tab.Navigator
+        initialRouteName="Chats"
+        screenOptions={{
+          ...props,
+          tabBarBounces: true,
+          tabBarIndicatorStyle: { backgroundColor: "white" },
+          tabBarLabelStyle: { textTransform: "uppercase", color: "white" },
         }}
-        component={Settings}
-      /> */}
-      <Tab.Screen name="Chats" component={Chats} />
-      <Tab.Screen name="Status" component={Status} />
-      <Tab.Screen name="Calls" component={Calls} />
-    </Tab.Navigator>
+      >
+        <Tab.Screen name="Chats" component={Chats} />
+        <Tab.Screen name="Status" component={Status} />
+        <Tab.Screen name="Calls" component={Calls} />
+      </Tab.Navigator>
+      <ActionFab />
+    </>
   );
 }
