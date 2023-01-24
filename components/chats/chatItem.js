@@ -8,9 +8,10 @@ export default function ChatItem({
   subtitle,
   timeStamp,
   badge,
+  onPress,
 }) {
   return (
-    <TouchableRipple style={styles.container} onPress={() => false}>
+    <TouchableRipple style={styles.container} onPress={onPress}>
       <>
         <Avatar.Icon size={54} icon="account" style={styles.avatarSection} />
         <View style={styles.mainSection}>

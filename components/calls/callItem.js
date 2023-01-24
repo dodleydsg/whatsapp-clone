@@ -16,6 +16,7 @@ export default function CallItem({
   timeStamp,
   subtitle,
   callType,
+  onPress,
 }) {
   let rand = 1;
   const callIcon = () => {
@@ -54,7 +55,7 @@ export default function CallItem({
     }
   };
   return (
-    <TouchableRipple style={styles.container} onPress={() => false}>
+    <TouchableRipple style={styles.container} onPress={onPress}>
       <>
         <Avatar.Icon
           size={54}

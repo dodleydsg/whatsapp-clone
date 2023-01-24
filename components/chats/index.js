@@ -5,11 +5,11 @@ import { View } from "react-native";
 import ChatItem from "./chatItem";
 import Container from "../shared/itemContainer";
 
-export default function Chats() {
+export default function Chats({ stackNavigation }) {
   const [chats, setChats] = useState([]);
   return (
     <Container>
-      <ChatItem />
+      <ChatItem onPress={() => stackNavigation.navigate("ChatStack")} />
       <ChatItem />
       <ChatItem />
       <ChatItem />

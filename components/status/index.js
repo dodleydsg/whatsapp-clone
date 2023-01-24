@@ -4,11 +4,15 @@ import Container from "../shared/itemContainer";
 import { Text } from "react-native";
 import { Avatar } from "react-native-paper";
 
-export default function Status() {
+export default function Status({ stackNavigation }) {
   const [chats, setChats] = useState([]);
   return (
     <Container>
-      <StatusItem subtitle="Tap to add status update" headline="My status">
+      <StatusItem
+        onPress={() => stackNavigation.navigate("StatusStack")}
+        subtitle="Tap to add status update"
+        headline="My status"
+      >
         <Avatar.Icon
           size={24}
           icon="plus"

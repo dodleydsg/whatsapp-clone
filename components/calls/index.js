@@ -3,9 +3,12 @@ import { StyleSheet, FlatList } from "react-native";
 import { View } from "react-native";
 import { Text } from "react-native-paper";
 import CallItem from "./callItem";
+import { TouchableWithoutFeedback } from "react-native";
+import { useNavigation, useNavigationState } from "@react-navigation/native";
 
-export default function Calls() {
+export default function Calls({ stackNavigation }) {
   const [calls, setCalls] = useState([]);
+
   //   return <FlatList data={chats} />;
   // FlatList for rendering ChatItems
   return (
@@ -22,7 +25,12 @@ export default function Calls() {
       >
         Recent
       </Text>
-      <CallItem callType="video" />
+
+      <CallItem
+        callType="video"
+        onPress={() => stackNavigation.navigate("CallStack")}
+      />
+
       <CallItem callType="audio" />
       <CallItem status="missed" />
       <CallItem status="accepted" />

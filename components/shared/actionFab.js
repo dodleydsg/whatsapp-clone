@@ -3,11 +3,10 @@ import { FAB } from "react-native-paper";
 import { StyleSheet } from "react-native";
 import { useNavigation, useNavigationState } from "@react-navigation/native";
 
-export default function ActionFab(props) {
-  const state = useNavigationState((state) => state);
+export default function ActionFab() {
+  let index = useNavigationState((state) => state.index);
   const navigation = useNavigation();
-  console.log(state);
-  switch (state.index) {
+  switch (index) {
     case 0:
       return (
         <FAB

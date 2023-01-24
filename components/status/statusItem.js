@@ -17,6 +17,7 @@ export default function StatusItem({
   subtitle,
   callType,
   children,
+  onPress,
 }) {
   const statusIcon = () => {
     switch (status) {
@@ -43,7 +44,7 @@ export default function StatusItem({
     }
   };
   return (
-    <TouchableRipple style={styles.container} onPress={() => false}>
+    <TouchableRipple style={styles.container} onPress={onPress}>
       <>
         <View style={{ ...styles.avatarSection, position: "relative" }}>
           <Avatar.Icon
