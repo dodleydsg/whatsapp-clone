@@ -1,18 +1,25 @@
 import * as React from "react";
 import { FAB } from "react-native-paper";
 import { StyleSheet } from "react-native";
-import { useNavigation, useNavigationState } from "@react-navigation/native";
+import { useNavigationState } from "@react-navigation/native";
 
-export default function ActionFab() {
-  let index = useNavigationState((state) => state.index);
-  const navigation = useNavigation();
+export default function ActionFab({ stackNavigation }) {
+  const index = useNavigationState((state) => {
+    try {
+      return state.index;
+    } catch (e) {
+      return 0;
+    }
+  });
+  console.log(index);
+
   switch (index) {
     case 0:
       return (
         <FAB
           icon="plus"
           style={styles.fab}
-          onPress={() => console.log(navigation.getCurrentRoute().name)}
+          onPress={() => stackNavigation.navigate("StatusStack")}
         />
       );
     case 1:
@@ -20,10 +27,10 @@ export default function ActionFab() {
         <FAB
           icon="google"
           style={styles.fab}
-          onPress={() => console.log(navigation.getCurrentRoute().name)}
+          onPress={() => console.log(navigation)}
         />
       );
-    case 3:
+    case 2:
       return (
         <FAB
           icon="phone"

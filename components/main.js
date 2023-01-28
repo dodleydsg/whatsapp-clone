@@ -1,10 +1,7 @@
 import React from "react";
-import { View, Text } from "react-native";
 import { Appbar } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import MainTab from "../navigation/mainTabNav";
-import ActionFab from "./shared/actionFab";
 
 export default function Main({ theme }) {
   //check current screen from navigation and render appropriate header
@@ -36,7 +33,6 @@ export default function Main({ theme }) {
           flex: 0,
         }}
       />
-      <ActionFab />
     </SafeAreaView>
   );
 }
