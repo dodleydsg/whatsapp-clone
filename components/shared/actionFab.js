@@ -1,6 +1,6 @@
 import * as React from "react";
 import { FAB } from "react-native-paper";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { useNavigationState } from "@react-navigation/native";
 
 export default function ActionFab({ stackNavigation }) {
@@ -11,29 +11,35 @@ export default function ActionFab({ stackNavigation }) {
       return 0;
     }
   });
-  console.log(index);
 
   switch (index) {
     case 0:
       return (
         <FAB
-          icon="plus"
+          icon="message"
           style={styles.fab}
           onPress={() => stackNavigation.navigate("StatusStack")}
         />
       );
     case 1:
       return (
-        <FAB
-          icon="google"
-          style={styles.fab}
-          onPress={() => console.log(navigation)}
-        />
+        <View>
+          <FAB
+            icon="pencil"
+            style={{ ...styles.fab, ...styles.specialFab }}
+            onPress={() => console.log(navigation)}
+          />
+          <FAB
+            icon="camera"
+            style={styles.fab}
+            onPress={() => console.log(navigation)}
+          />
+        </View>
       );
     case 2:
       return (
         <FAB
-          icon="phone"
+          icon="phone-plus"
           style={styles.fab}
           onPress={() => console.log(navigation.getCurrentRoute().name)}
         />
@@ -54,6 +60,13 @@ const styles = StyleSheet.create({
     position: "absolute",
     margin: 16,
     right: 0,
+    borderRadius: 30,
     bottom: 0,
+    padding: 2,
+  },
+  specialFab: {
+    bottom: 70,
+    padding: 0,
+    backgroundColor: "gray",
   },
 });
