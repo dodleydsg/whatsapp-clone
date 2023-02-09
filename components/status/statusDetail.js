@@ -7,4 +7,4 @@ export default function StatusDetail() {
       <Text>This is the status detail</Text>
     </View>
   );
-}
+} 
